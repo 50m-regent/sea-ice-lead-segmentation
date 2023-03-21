@@ -27,7 +27,7 @@ def extract_pixels(size):
     print(f'Saved: data/{size}x{size}_unlabelled_set.npz {data.shape}')
     
 def _trim(image, size):
-    image = image[:image.shape[0] // size * size, : image.shape[1] // size * size]
+    image = image[:image.shape[0] // size * size, :image.shape[1] // size * size]
         
     image = numpy.split(image, range(size, image.shape[0], size))
     image = numpy.stack(image)
