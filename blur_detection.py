@@ -2,13 +2,13 @@ import os
 import numpy
 import cv2
 
-from utils import get_reflectance, normalize, patch
+from utils import get_reflectance, normalize, patch_image
 
 def detect_blur(file, save_path, save_name, patch_size):
     reflectance = get_reflectance(file)[:, :, 0]
     reflectance = normalize(reflectance)
     
-    patches = patch(reflectance, patch_size)
+    patches = patch_image(reflectance, patch_size)
     
     image = [
         [cv2.Laplacian(patch, cv2.CV_32F).var() for patch in row]

@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 import cv2
 from tqdm import tqdm
 
-from utils import load_labelled_data, load_unlabelled_data, get_reflectance
+from utils import load_labelled_data, load_unlabelled_data, get_reflectance, patch, normalize
 
 def rollout(file, save_path, save_name, kmeans, n):
     lead_clusters = list(numpy.argsort(kmeans.cluster_centers_, axis = 0)[:, 0][:n])
@@ -51,7 +51,20 @@ def kmeans(train_data, test_data, n_clusters):
                 classifier, n
             )
             
-if __name__ == '__main__':
+def patched_kmeans(n_clusters, patch_size):
+    files = os.listdir('data/reflectance')
+    for file in tqdm(files):
+        reflectance = get_reflectance(os.path.join('data/reflectance', file))
+        patches     = patch_image(reflectance, patch_size)
+        
+        for row in patches:
+            for patch in row:
+                classifier = KMeans(n_clusters, n_init = 'auto')
+                classifier.fit(patch.reshape(-1, patch.shape[-1]))
+                
+                
+            
+def kmeans_main():
     n_clusters = 8
     
     train_data, test_data = load_labelled_data(1)
@@ -59,3 +72,9 @@ if __name__ == '__main__':
     train_x      = numpy.concatenate((unlabelled_x, train_data[0]))
     
     kmeans(train_x, test_data, n_clusters)
+            
+if __name__ == '__main__':
+    n_clusters = 2
+    patch_size = 256
+    
+    patched_kmeans(n_clusters, patch_size)

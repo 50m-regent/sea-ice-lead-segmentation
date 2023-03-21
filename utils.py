@@ -42,7 +42,7 @@ def get_reflectance(path):
 def normalize(x):
     return (x - numpy.min(x)) / (numpy.max(x) - numpy.min(x))
 
-def patch(image, size):
+def patch_image(image, size):
     image = image[:image.shape[0] // size * size, :image.shape[1] // size * size]
     
     image = numpy.split(image, range(size, image.shape[0], size))
@@ -51,7 +51,7 @@ def patch(image, size):
     image = numpy.split(image, range(size, image.shape[2], size), axis = 2)
     image = numpy.stack(image)
 
-    return image.transpose(1, 0, 2, 3)
+    return image.transpose(1, 0, *range(2, len(image.shape)))
 
 def load_labelled_data(size):
     assert size in (1, 3)
