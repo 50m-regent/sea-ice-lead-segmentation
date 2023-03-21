@@ -4,7 +4,7 @@ from sklearn.cluster import KMeans
 import cv2
 from tqdm import tqdm
 
-from utils import load_labelled_data, load_unlabelled_data, get_reflectance, patch, normalize
+from utils import load_labelled_data, load_unlabelled_data, get_reflectance, patch_image
 
 def rollout(file, save_path, save_name, kmeans, n):
     lead_clusters = list(numpy.argsort(kmeans.cluster_centers_, axis = 0)[:, 0][:n])
@@ -57,24 +57,36 @@ def patched_kmeans(n_clusters, patch_size):
         reflectance = get_reflectance(os.path.join('data/reflectance', file))
         patches     = patch_image(reflectance, patch_size)
         
+        image = []
         for row in patches:
+            image_row = []
             for patch in row:
                 classifier = KMeans(n_clusters, n_init = 'auto')
-                classifier.fit(patch.reshape(-1, patch.shape[-1]))
+                prediction = classifier.fit_predict(
+                    patch.reshape(-1, patch.shape[-1])
+                ).reshape(patch.shape[:2])
                 
+                darkest_cluster = numpy.argsort(classifier.cluster_centers_, axis = 0)[:, 0][0]
                 
+                patch = numpy.where(prediction == darkest_cluster, 255, 0)
+                image_row.append(patch)
+                
+            image.append(numpy.concatenate(image_row, axis = 1))
             
-def kmeans_main():
+        image = numpy.concatenate(image)
+        cv2.imwrite(f'rollout/kmeans/{file}_{n_clusters}_{patch_size}_patched.png', image)
+            
+def kmeans_main(data_size):
     n_clusters = 8
     
-    train_data, test_data = load_labelled_data(1)
-    unlabelled_x = load_unlabelled_data(1)
+    train_data, test_data = load_labelled_data(data_size)
+    unlabelled_x = load_unlabelled_data(data_size)
     train_x      = numpy.concatenate((unlabelled_x, train_data[0]))
     
     kmeans(train_x, test_data, n_clusters)
             
 if __name__ == '__main__':
     n_clusters = 2
-    patch_size = 256
+    patch_size = 128
     
     patched_kmeans(n_clusters, patch_size)
