@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\usepackage[margin=20truemm]{geometry}
 \usepackage{amsmath}
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{caption}
@@ -139,6 +140,8 @@ are discussed in section \ref{sec:experiments}.
         In the experiments described later,
         $1\times 1$ and $3\times 3$ pixels cropped from the original image
         are used as data.
+        For some methods which use patched data,
+        $128\times 128$ patches extracted from the images are used.
         Since the original image has 21 channels,
         the data shape is $1\times 1\times 21$ or $3\times 3\times 21$.
         As training and validating data,
@@ -157,14 +160,58 @@ are discussed in section \ref{sec:experiments}.
     \subsection{Prior experiment} \label{sec:vit}
         Using labelled dataset,
         supervised training has done to a model based on Vision Transformer \cite{vit}.
-        It performed accuracy of 0.8395, and its rollout is shown in Figure \ref{fig:rollouts}.
+        It performed accuracy of 0.8395, and its rollout is shown in Figure \ref{fig:vit}.
         Although the accuracy inferior to other methods as shown later,
         this method is likely the most effective when looking at rollout.
 
+        \begin{figure}[h]
+            \centering
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
+                \caption*{(a)}
+            \end{minipage}
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_vit.png}
+                \includegraphics[width = 1\hsize]{2_vit.png}
+                \caption*{(b)}
+            \end{minipage}
+            \caption{
+                Prior experiments results.
+                (a) Channel 1 of the original image.
+                (b) Rollout of Vision Transformer model.
+            }
+            \label{fig:vit}
+        \end{figure}
+
     \subsection{Edge detection} \label{sec:edge}
         As two thresholds, $(t_\mathrm{max}, t_\mathrm{min}) = (0, 96)$ is used.
-        The result is shown in Figure \ref{fig:rollouts}.
+        The result is shown in Figure \ref{fig:edge}.
         We can see that the result is similar to the rollout of prior experiment.
+
+        \begin{figure}[h]
+            \centering
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
+                \caption*{(a)}
+            \end{minipage}
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_edge.png}
+                \includegraphics[width = 1\hsize]{2_edge.png}
+                \caption*{(b)}
+            \end{minipage}
+            \caption{
+                Edge detection results.
+                (a) Channel 1 of the original image.
+                (b) Detected edges.
+            }
+            \label{fig:edge}
+        \end{figure}
 
     \subsection{Blur detection}
         Images are subdivided into $128 \times 128$ pixels,
@@ -176,7 +223,7 @@ are discussed in section \ref{sec:experiments}.
         region with lead also has a certain value of the variance,
         which leads the conclusion that the method is severe to be used for cloud removal.
 
-        \begin{figure}
+        \begin{figure}[h]
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
@@ -206,7 +253,47 @@ are discussed in section \ref{sec:experiments}.
         the model performed accuracy of 0.7498 training with $1\times 1$ data,
         and 0.7893 with $3\times 3$ data.
         The rollouts of model trained with $3\times 3$ data
-        are shown in Figure \ref{fig:rollouts}.
+        are shown in Figure \ref{fig:kmeans}.
+
+        \subsubsection{Patched K-means clustering}
+            The K-means clustering can be more efficient by
+            not clustering the whole image, but patched image.
+            
+            In result, the model was susceptible of clouds,
+            Although more accurate for smaller leads.
+            This method should be considered combining
+            with a cloud removal processing.
+            The rollouts of patched K-means clustering are also
+            shown in Figure \ref{fig:kmeans}.
+
+        \begin{figure}[h]
+            \centering
+            \begin{minipage}{0.3\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
+                \caption*{(a)}
+            \end{minipage}
+            \begin{minipage}{0.3\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_kmeans.png}
+                \includegraphics[width = 1\hsize]{2_kmeans.png}
+                \caption*{(b)}
+            \end{minipage}
+            \begin{minipage}{0.3\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_kmeans_patched.png}
+                \includegraphics[width = 1\hsize]{2_kmeans_patched.png}
+                \caption*{(c)}
+            \end{minipage}
+            \caption{
+                K-means clustering results.
+                (a) Channel 1 of the original image.
+                (b) Rollout of K-means clustering classifier.
+                (c) Rollout of patched K-means clustering.
+            }
+            \label{fig:kmeans}
+        \end{figure}
 
     \subsection{Label spreading} \label{sec:label}
         \subsubsection{Using raw data}
@@ -221,7 +308,7 @@ are discussed in section \ref{sec:experiments}.
             The model performed accuracy of 0.8321 with $1\times 1$ data,
             and 0.8943 with $3\times 3$ data.
             The rollouts of model trained with $3\times 3$ data
-            are shown in Figure \ref{fig:rollouts}.
+            are shown in Figure \ref{fig:label_spreading}.
 
     \subsection{Random forest} \label{sec:random}
         Random forest classifier with 20 ensembles is trained with
@@ -232,25 +319,7 @@ are discussed in section \ref{sec:experiments}.
         we did when using the label spreading method,
         but no improvement was seen.
         The rollouts of model trained with $3\times 3$ data
-        are shown in Figure \ref{fig:rollouts}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width = 1\hsize]{rollouts1.png}
-        \includegraphics[width = 1\hsize]{rollouts2.png}
-        \caption{
-            Rollouts of each model to two images.
-            The upper left figure is channel 1 of the original image,
-            and rollout of Vision Transformer (Section \ref{sec:vit})
-            and edge detection (Section \ref{sec:edge}).
-            Rollout of K-means clustering (Section \ref{sec:kmeans}),
-            label spreading (Section \ref{sec:label}),
-            and random forest (Section \ref{sec:random})
-            from left to right in the bottom row.
-            Accuracy of the model are shown in Table \ref{tab:accuracy}
-        }
-        \label{fig:rollouts}
-    \end{figure}
+        are shown in Figure \ref{fig:random_forest}
 
     \begin{table}
         \centering

@@ -87,6 +87,6 @@ def kmeans_main(data_size):
             
 if __name__ == '__main__':
     n_clusters = 2
-    patch_size = 128
+    patch_size = 64
     
     patched_kmeans(n_clusters, patch_size)
