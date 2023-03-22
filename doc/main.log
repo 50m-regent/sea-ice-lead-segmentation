@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 02:29
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 02:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -219,10 +219,6 @@ File: 1_vit.png Graphic file (type bmp)
 <1_vit.png>
 File: 2_vit.png Graphic file (type bmp)
 <2_vit.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: 1.png Graphic file (type bmp)
 <1.png>
 File: 2.png Graphic file (type bmp)
@@ -231,10 +227,7 @@ File: 1_edge.png Graphic file (type bmp)
 <1_edge.png>
 File: 2_edge.png Graphic file (type bmp)
 <2_edge.png>
-[2]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [2]
 File: 1.png Graphic file (type bmp)
 <1.png>
 File: 2.png Graphic file (type bmp)
@@ -243,9 +236,6 @@ File: 1_blur.png Graphic file (type bmp)
 <1_blur.png>
 File: 2_blur.png Graphic file (type bmp)
 <2_blur.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: 1.png Graphic file (type bmp)
 <1.png>
 File: 2.png Graphic file (type bmp)
@@ -258,31 +248,31 @@ File: 1_kmeans_patched.png Graphic file (type bmp)
 <1_kmeans_patched.png>
 File: 2_kmeans_patched.png Graphic file (type bmp)
 <2_kmeans_patched.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3]
-
-LaTeX Warning: Reference `fig:label_spreading' on page 4 undefined on input line 311.
-
-
-LaTeX Warning: Reference `fig:random_forest' on page 4 undefined on input line 322.
-
-[4] [5] [6] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ [3]
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_label.png Graphic file (type bmp)
+<1_label.png>
+File: 2_label.png Graphic file (type bmp)
+<2_label.png>
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_random_forest.png Graphic file (type bmp)
+<1_random_forest.png>
+File: 2_random_forest.png Graphic file (type bmp)
+<2_random_forest.png>
+ [4] [5] [6] [7] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 3545 strings out of 478724
- 60485 string characters out of 5858392
+ 3569 strings out of 478724
+ 61027 string characters out of 5858392
  381105 words of memory out of 5000000
- 21981 multiletter control sequences out of 15000+600000
+ 21997 multiletter control sequences out of 15000+600000
  476028 words of font info for 56 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  55i,9n,63p,297b,429s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (6 pages, 16428 bytes).
+Output written on main.dvi (7 pages, 17676 bytes).

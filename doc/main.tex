@@ -104,7 +104,7 @@ are discussed in section \ref{sec:experiments}.
             \end{enumerate}
 
         \subsubsection{Random forest classifier}
-            Random forest classifier \cite{random} is a ensemble clustering algorithm.
+            Random forest classifier \cite{random} is a ensemble classifying algorithm.
             It consists of decision trees each trained on subdivided data.
             The idea here is to take average of a certain number of decision trees
             over-trained in diferent data respectively.
@@ -164,7 +164,7 @@ are discussed in section \ref{sec:experiments}.
         Although the accuracy inferior to other methods as shown later,
         this method is likely the most effective when looking at rollout.
 
-        \begin{figure}[h]
+        \begin{figure}[ht]
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
@@ -191,7 +191,7 @@ are discussed in section \ref{sec:experiments}.
         The result is shown in Figure \ref{fig:edge}.
         We can see that the result is similar to the rollout of prior experiment.
 
-        \begin{figure}[h]
+        \begin{figure}[ht]
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
@@ -223,7 +223,7 @@ are discussed in section \ref{sec:experiments}.
         region with lead also has a certain value of the variance,
         which leads the conclusion that the method is severe to be used for cloud removal.
 
-        \begin{figure}[h]
+        \begin{figure}[ht]
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
@@ -266,21 +266,21 @@ are discussed in section \ref{sec:experiments}.
             The rollouts of patched K-means clustering are also
             shown in Figure \ref{fig:kmeans}.
 
-        \begin{figure}[h]
+        \begin{figure}[ht]
             \centering
-            \begin{minipage}{0.3\hsize}
+            \begin{minipage}{0.32\hsize}
                 \centering
                 \includegraphics[width = 1\hsize]{1.png}
                 \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
-            \begin{minipage}{0.3\hsize}
+            \begin{minipage}{0.32\hsize}
                 \centering
                 \includegraphics[width = 1\hsize]{1_kmeans.png}
                 \includegraphics[width = 1\hsize]{2_kmeans.png}
                 \caption*{(b)}
             \end{minipage}
-            \begin{minipage}{0.3\hsize}
+            \begin{minipage}{0.32\hsize}
                 \centering
                 \includegraphics[width = 1\hsize]{1_kmeans_patched.png}
                 \includegraphics[width = 1\hsize]{2_kmeans_patched.png}
@@ -308,7 +308,29 @@ are discussed in section \ref{sec:experiments}.
             The model performed accuracy of 0.8321 with $1\times 1$ data,
             and 0.8943 with $3\times 3$ data.
             The rollouts of model trained with $3\times 3$ data
-            are shown in Figure \ref{fig:label_spreading}.
+            are shown in Figure \ref{fig:label}.
+
+            \begin{figure}[ht]
+                \centering
+                \begin{minipage}{0.49\hsize}
+                    \centering
+                    \includegraphics[width = 1\hsize]{1.png}
+                    \includegraphics[width = 1\hsize]{2.png}
+                    \caption*{(a)}
+                \end{minipage}
+                \begin{minipage}{0.49\hsize}
+                    \centering
+                    \includegraphics[width = 1\hsize]{1_label.png}
+                    \includegraphics[width = 1\hsize]{2_label.png}
+                    \caption*{(b)}
+                \end{minipage}
+                \caption{
+                    Label spreading results.
+                    (a) Channel 1 of the original image.
+                    (b) Rollout of label spreading.
+                }
+                \label{fig:label}
+            \end{figure}
 
     \subsection{Random forest} \label{sec:random}
         Random forest classifier with 20 ensembles is trained with
@@ -320,6 +342,32 @@ are discussed in section \ref{sec:experiments}.
         but no improvement was seen.
         The rollouts of model trained with $3\times 3$ data
         are shown in Figure \ref{fig:random_forest}
+
+        \begin{figure}[ht]
+            \centering
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
+                \caption*{(a)}
+            \end{minipage}
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_random_forest.png}
+                \includegraphics[width = 1\hsize]{2_random_forest.png}
+                \caption*{(b)}
+            \end{minipage}
+            \caption{
+                Random Forest clustering results.
+                (a) Channel 1 of the original image.
+                (b) Rollout of Random Forest classifier.
+            }
+            \label{fig:random_forest}
+        \end{figure}
+
+    \subsection{Autoencoder with supervised training}
+
+    \subsection{Unsupervised segmentation}
 
     \begin{table}
         \centering
