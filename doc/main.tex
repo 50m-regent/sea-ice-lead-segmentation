@@ -120,6 +120,53 @@ are discussed in section \ref{sec:experiments}.
             By training the autoencoder to reduce the difference between the input and output,
             it can be said that the output of the encoder is the features necessary to reconstruct the original input.
 
+        \subsubsection{U-Net} \label{sec:unsupervised}
+            U-Net \cite{unet} is a generative model where its input and output are both an image.
+            Using this as both encoder and decoder in an autoencoder,
+            unsupervised lead segmentation model can be trained:
+            consider the encoder output as segmentation.
+            Following two losses are calculated.
+            \begin{description}
+                \item[Encoder loss]{
+                    Mean square error between encoder outputs of original image
+                    and photometric transformed image.
+                }
+                \item[Decoder loss]{
+                    Mean square error between input and decoder output.
+                }
+            \end{description}
+
+            The first loss is based on a hypothesis that
+            if the encoder learned the representation of leads,
+            it will produce the same output with photometric-transformed and non-transformed image.
+            Additionally, to emphisize leads in the encoder output,
+            a blurred input is concatenated to the encoder output before feeding it into the decoder.
+            This is effective because the lead feature is reduced
+            with blurring, but the ice and cloud features which we want the encoder to remove,
+            is less reduced as shown in Figure \ref{fig:unsupervised_basis}.
+
+            \begin{figure}[ht]
+                \centering
+                \begin{minipage}{0.25\hsize}
+                    \centering
+                    \includegraphics[width = 1\hsize]{lead_patch.png}
+                    \includegraphics[width = 1\hsize]{cloud_patch.png}
+                    \caption*{(a)}
+                \end{minipage}
+                \begin{minipage}{0.25\hsize}
+                    \centering
+                    \includegraphics[width = 1\hsize]{lead_patch_blurred.png}
+                    \includegraphics[width = 1\hsize]{cloud_patch_blurred.png}
+                    \caption*{(b)}
+                \end{minipage}
+                \caption{
+                    Difference between blurred and unblurred images.
+                    (a) Channel 1 of the original image.
+                    (b) blurred image.
+                }
+                \label{fig:unsupervised_basis}
+            \end{figure}
+
     \subsection{Semi-supervised methods}
         \subsubsection{Label spreading}
             Label spreading \cite{label} is semi-supervised classifying algorithm.
@@ -168,14 +215,14 @@ are discussed in section \ref{sec:experiments}.
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1.png}
-                %\includegraphics[width = 1\hsize]{2.png}
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_vit.png}
-                %\includegraphics[width = 1\hsize]{2_vit.png}
+                \includegraphics[width = 1\hsize]{1_vit.png}
+                \includegraphics[width = 1\hsize]{2_vit.png}
                 \caption*{(b)}
             \end{minipage}
             \caption{
@@ -195,14 +242,14 @@ are discussed in section \ref{sec:experiments}.
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1.png}
-                %\includegraphics[width = 1\hsize]{2.png}
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_edge.png}
-                %\includegraphics[width = 1\hsize]{2_edge.png}
+                \includegraphics[width = 1\hsize]{1_edge.png}
+                \includegraphics[width = 1\hsize]{2_edge.png}
                 \caption*{(b)}
             \end{minipage}
             \caption{
@@ -227,14 +274,14 @@ are discussed in section \ref{sec:experiments}.
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1.png}
-                %\includegraphics[width = 1\hsize]{2.png}
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_blur.png}
-                %\includegraphics[width = 1\hsize]{2_blur.png}
+                \includegraphics[width = 1\hsize]{1_blur.png}
+                \includegraphics[width = 1\hsize]{2_blur.png}
                 \caption*{(b)}
             \end{minipage}
             \caption{
@@ -270,20 +317,20 @@ are discussed in section \ref{sec:experiments}.
             \centering
             \begin{minipage}{0.32\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1.png}
-                %\includegraphics[width = 1\hsize]{2.png}
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
             \begin{minipage}{0.32\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_kmeans.png}
-                %\includegraphics[width = 1\hsize]{2_kmeans.png}
+                \includegraphics[width = 1\hsize]{1_kmeans.png}
+                \includegraphics[width = 1\hsize]{2_kmeans.png}
                 \caption*{(b)}
             \end{minipage}
             \begin{minipage}{0.32\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_kmeans_patched.png}
-                %\includegraphics[width = 1\hsize]{2_kmeans_patched.png}
+                \includegraphics[width = 1\hsize]{1_kmeans_patched.png}
+                \includegraphics[width = 1\hsize]{2_kmeans_patched.png}
                 \caption*{(c)}
             \end{minipage}
             \caption{
@@ -314,14 +361,14 @@ are discussed in section \ref{sec:experiments}.
                 \centering
                 \begin{minipage}{0.49\hsize}
                     \centering
-                    %\includegraphics[width = 1\hsize]{1.png}
-                    %\includegraphics[width = 1\hsize]{2.png}
+                    \includegraphics[width = 1\hsize]{1.png}
+                    \includegraphics[width = 1\hsize]{2.png}
                     \caption*{(a)}
                 \end{minipage}
                 \begin{minipage}{0.49\hsize}
                     \centering
-                    %\includegraphics[width = 1\hsize]{1_label.png}
-                    %\includegraphics[width = 1\hsize]{2_label.png}
+                    \includegraphics[width = 1\hsize]{1_label.png}
+                    \includegraphics[width = 1\hsize]{2_label.png}
                     \caption*{(b)}
                 \end{minipage}
                 \caption{
@@ -347,14 +394,14 @@ are discussed in section \ref{sec:experiments}.
             \centering
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1.png}
-                %\includegraphics[width = 1\hsize]{2.png}
+                \includegraphics[width = 1\hsize]{1.png}
+                \includegraphics[width = 1\hsize]{2.png}
                 \caption*{(a)}
             \end{minipage}
             \begin{minipage}{0.49\hsize}
                 \centering
-                %\includegraphics[width = 1\hsize]{1_random_forest.png}
-                %\includegraphics[width = 1\hsize]{2_random_forest.png}
+                \includegraphics[width = 1\hsize]{1_random_forest.png}
+                \includegraphics[width = 1\hsize]{2_random_forest.png}
                 \caption*{(b)}
             \end{minipage}
             \caption{
@@ -373,7 +420,7 @@ are discussed in section \ref{sec:experiments}.
         and the autoencoder is trained with unlabelled data,
         thus, the encoder is semi-supervisely trained.
         
-        The classifier performed accuracy of 0.93 on test set.
+        The classifier performed accuracy of 0.9298 using $3\times 3$ data.
         The rollout is shown in Figure \ref{fig:supervised}.
 
         \begin{figure}[ht]
@@ -399,6 +446,29 @@ are discussed in section \ref{sec:experiments}.
         \end{figure}
 
     \subsection{Unsupervised segmentation}
+        The unsupervised model mentioned in Section \ref{sec:unsupervised}
+        is trained with patched data.
+        Its rollout is shown in Figure \ref{fig:unsupervised}.
+
+        \begin{figure}[ht]
+            \centering
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1.png}
+                \caption*{(a)}
+            \end{minipage}
+            \begin{minipage}{0.49\hsize}
+                \centering
+                \includegraphics[width = 1\hsize]{1_unsupervised.png}
+                \caption*{(b)}
+            \end{minipage}
+            \caption{
+                Result of unsupervised training.
+                (a) Channel 1 of the original image.
+                (b) The segmentation (output of the encoder).
+            }
+            \label{fig:unsupervised}
+        \end{figure}
 
     \begin{table}
         \centering
@@ -409,10 +479,12 @@ are discussed in section \ref{sec:experiments}.
             Vision Transformer & - & 0.8395 \\
             K-means & 0.7498 & 0.7893 \\
             Label spreading & 0.8321 & 0.8943 \\
-            Random forest & 0.9244 & 0.9478 \\ \hline
+            Random forest & 0.9244 & 0.9478 \\
+            Simultaneous training & 0.9010 & 0.9298 \\ \hline
         \end{tabular}
     \end{table}
 
+\newpage
 \begin{thebibliography}{99}
     \bibitem{edge}{
         J. Canny,
@@ -420,47 +492,47 @@ are discussed in section \ref{sec:experiments}.
         IEEE Transactions on Pattern Analysis and Machine Intelligence,
         1986
     }
-
     \bibitem{blur}{
         R. Bansal, G. Raj and T. Choudhury,
         ``Blur image detection using Laplacian operator and Open-CV'',
         International Conference System Modeling \& Advancement in Research Trends,
         2016
     }
-
     \bibitem{kmeans}{
         G. Ball and D. Hall,
         ``ISODATA, a Novel Method of Data Analysis and Pattern Classification'',
         Stanford Research Institute,
         1965
     }
-
     \bibitem{random}{
         L. Breiman,
         ``Random Forests'',
         Machine Learning,
         2001
     }
-
     \bibitem{autoencoder}{
         M. Kramer,
         ``Nonlinear principal component analysis using autoassociative neural networks'',
         AIChE Journal,
         1991
     }
-
     \bibitem{label}{
         D. Zhou, O. Bousquet, T. Lal, J. Weston and B. Schoelkopf,
         ``Learning with local and global consistency'',
         Advances in Neural Information Processing Systems,
         2004
     }
-
     \bibitem{vit}{
         A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly, J. Uszkoreit and N. Houlsby,
         ``An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale'',
         International Conference on Learning Representations,
         2021
+    }
+    \bibitem{unet}{
+        O. Ronneberger, P. Fischer, and T. Brox,
+        ``U-Net: Convolutional Networks for Biomedical Image Segmentation'',
+        Computer Vision and Pattern Recognition,
+        2015
     }
 \end{thebibliography}
 \end{document}

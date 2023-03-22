@@ -13,37 +13,44 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2}Blur detection}{1}{}\protected@file@percent }
 \citation{random}
 \citation{autoencoder}
+\citation{unet}
 \citation{label}
-\citation{vit}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Unsupervised methods}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}K-means clustering}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2}Random forest classifier}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.3}Autoencoder}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.4}U-Net}{2}{}\protected@file@percent }
+\newlabel{sec:unsupervised}{{1.2.4}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Semi-supervised methods}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Label spreading}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Experiments}{2}{}\protected@file@percent }
-\newlabel{sec:experiments}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Dataset}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Prior experiment}{2}{}\protected@file@percent }
-\newlabel{sec:vit}{{2.2}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Prior experiments results. (a) Channel 1 of the original image. (b) Rollout of Vision Transformer model. \relax }}{3}{}\protected@file@percent }
+\citation{vit}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Difference between blurred and unblurred images. (a) Channel 1 of the original image. (b) blurred image. \relax }}{3}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:vit}{{1}{3}}
+\newlabel{fig:unsupervised_basis}{{1}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Experiments}{3}{}\protected@file@percent }
+\newlabel{sec:experiments}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Dataset}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Prior experiment}{3}{}\protected@file@percent }
+\newlabel{sec:vit}{{2.2}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Edge detection}{3}{}\protected@file@percent }
 \newlabel{sec:edge}{{2.3}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Edge detection results. (a) Channel 1 of the original image. (b) Detected edges. \relax }}{3}{}\protected@file@percent }
-\newlabel{fig:edge}{{2}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Blur detection}{3}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Blur detection results. (a) Channel 1 of the original image. (b) Variance of the Laplacian by region. The brighter the region, the more blurred it is. \relax }}{3}{}\protected@file@percent }
-\newlabel{fig:blur}{{3}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}K-means clustering}{3}{}\protected@file@percent }
-\newlabel{sec:kmeans}{{2.5}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Patched K-means clustering}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Label spreading}{3}{}\protected@file@percent }
-\newlabel{sec:label}{{2.6}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Using raw data}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Using autoencoder}{3}{}\protected@file@percent }
-\newlabel{sec:aecomb}{{2.6.2}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Prior experiments results. (a) Channel 1 of the original image. (b) Rollout of Vision Transformer model. \relax }}{4}{}\protected@file@percent }
+\newlabel{fig:vit}{{2}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}K-means clustering}{4}{}\protected@file@percent }
+\newlabel{sec:kmeans}{{2.5}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Patched K-means clustering}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Label spreading}{4}{}\protected@file@percent }
+\newlabel{sec:label}{{2.6}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Using raw data}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Using autoencoder}{4}{}\protected@file@percent }
+\newlabel{sec:aecomb}{{2.6.2}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Edge detection results. (a) Channel 1 of the original image. (b) Detected edges. \relax }}{5}{}\protected@file@percent }
+\newlabel{fig:edge}{{3}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Random forest}{5}{}\protected@file@percent }
+\newlabel{sec:random}{{2.7}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Autoencoder with supervised training}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Unsupervised segmentation}{5}{}\protected@file@percent }
 \bibcite{edge}{1}
 \bibcite{blur}{2}
 \bibcite{kmeans}{3}
@@ -51,18 +58,19 @@
 \bibcite{autoencoder}{5}
 \bibcite{label}{6}
 \bibcite{vit}{7}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  K-means clustering results. (a) Channel 1 of the original image. (b) Rollout of K-means clustering classifier. (c) Rollout of patched K-means clustering. \relax }}{4}{}\protected@file@percent }
-\newlabel{fig:kmeans}{{4}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Label spreading results. (a) Channel 1 of the original image. (b) Rollout of label spreading. \relax }}{4}{}\protected@file@percent }
-\newlabel{fig:label}{{5}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Random forest}{4}{}\protected@file@percent }
-\newlabel{sec:random}{{2.7}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Random Forest clustering results. (a) Channel 1 of the original image. (b) Rollout of Random Forest classifier. \relax }}{4}{}\protected@file@percent }
-\newlabel{fig:random_forest}{{6}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Autoencoder with supervised training}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Unsupervised segmentation}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Result of simultaneous training. (a) Channel 1 of the original image. (b) Rollout of simultaneously trained classifier. \relax }}{5}{}\protected@file@percent }
-\newlabel{fig:supervised}{{7}{5}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Accuracy of models\relax }}{5}{}\protected@file@percent }
-\newlabel{tab:accuracy}{{1}{5}}
-\gdef \@abspage@last{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Blur detection results. (a) Channel 1 of the original image. (b) Variance of the Laplacian by region. The brighter the region, the more blurred it is. \relax }}{6}{}\protected@file@percent }
+\newlabel{fig:blur}{{4}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Accuracy of models\relax }}{6}{}\protected@file@percent }
+\newlabel{tab:accuracy}{{1}{6}}
+\bibcite{unet}{8}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  K-means clustering results. (a) Channel 1 of the original image. (b) Rollout of K-means clustering classifier. (c) Rollout of patched K-means clustering. \relax }}{7}{}\protected@file@percent }
+\newlabel{fig:kmeans}{{5}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Label spreading results. (a) Channel 1 of the original image. (b) Rollout of label spreading. \relax }}{8}{}\protected@file@percent }
+\newlabel{fig:label}{{6}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Random Forest clustering results. (a) Channel 1 of the original image. (b) Rollout of Random Forest classifier. \relax }}{9}{}\protected@file@percent }
+\newlabel{fig:random_forest}{{7}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Result of simultaneous training. (a) Channel 1 of the original image. (b) Rollout of simultaneously trained classifier. \relax }}{10}{}\protected@file@percent }
+\newlabel{fig:supervised}{{8}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Result of unsupervised training. (a) Channel 1 of the original image. (b) The segmentation (output of the encoder). \relax }}{10}{}\protected@file@percent }
+\newlabel{fig:unsupervised}{{9}{10}}
+\gdef \@abspage@last{10}

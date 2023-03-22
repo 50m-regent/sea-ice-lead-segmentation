@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 09:31
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 10:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -210,7 +210,70 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 16.
 [1
 
-] [2] [3]
+]
+File: lead_patch.png Graphic file (type bmp)
+<lead_patch.png>
+File: cloud_patch.png Graphic file (type bmp)
+<cloud_patch.png>
+File: lead_patch_blurred.png Graphic file (type bmp)
+<lead_patch_blurred.png>
+File: cloud_patch_blurred.png Graphic file (type bmp)
+<cloud_patch_blurred.png>
+ [2]
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_vit.png Graphic file (type bmp)
+<1_vit.png>
+File: 2_vit.png Graphic file (type bmp)
+<2_vit.png>
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_edge.png Graphic file (type bmp)
+<1_edge.png>
+File: 2_edge.png Graphic file (type bmp)
+<2_edge.png>
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_blur.png Graphic file (type bmp)
+<1_blur.png>
+File: 2_blur.png Graphic file (type bmp)
+<2_blur.png>
+ [3]
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_kmeans.png Graphic file (type bmp)
+<1_kmeans.png>
+File: 2_kmeans.png Graphic file (type bmp)
+<2_kmeans.png>
+File: 1_kmeans_patched.png Graphic file (type bmp)
+<1_kmeans_patched.png>
+File: 2_kmeans_patched.png Graphic file (type bmp)
+<2_kmeans_patched.png>
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_label.png Graphic file (type bmp)
+<1_label.png>
+File: 2_label.png Graphic file (type bmp)
+<2_label.png>
+ [4]
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+File: 1_random_forest.png Graphic file (type bmp)
+<1_random_forest.png>
+File: 2_random_forest.png Graphic file (type bmp)
+<2_random_forest.png>
 File: 1.png Graphic file (type bmp)
 <1.png>
 File: 2.png Graphic file (type bmp)
@@ -219,14 +282,22 @@ File: 1_supervised.png Graphic file (type bmp)
 <1_supervised.png>
 File: 2_supervised.png Graphic file (type bmp)
 <2_supervised.png>
- [4] [5] (./main.aux) ) 
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 1_unsupervised.png Graphic file (type bmp)
+<1_unsupervised.png>
+ [5] [6] [7] [8] [9] [10] (./main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3499 strings out of 478724
- 59579 string characters out of 5858392
+ 3617 strings out of 478724
+ 62201 string characters out of 5858392
  381105 words of memory out of 5000000
- 21951 multiletter control sequences out of 15000+600000
+ 22031 multiletter control sequences out of 15000+600000
  476028 words of font info for 56 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  55i,9n,63p,297b,429s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (5 pages, 16540 bytes).
+Output written on main.dvi (10 pages, 21764 bytes).
