@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 10:29
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.euc) (TeX Live 2022) (preloaded format=platex 2022.10.3)  22 MAR 2023 10:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -286,11 +286,7 @@ File: 1.png Graphic file (type bmp)
 <1.png>
 File: 1_unsupervised.png Graphic file (type bmp)
 <1_unsupervised.png>
- [5] [6] [7] [8] [9] [10] (./main.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ [5] [6] [7] [8] [9] [10] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  3617 strings out of 478724
  62201 string characters out of 5858392
